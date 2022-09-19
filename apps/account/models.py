@@ -24,7 +24,7 @@ class Account(TimeStampedModel):
 
 
 class AccountAsset(TimeStampedModel):
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='assets')
     asset = models.ForeignKey(Asset, on_delete=models.CASCADE)
     current_price = models.DecimalField(max_digits=12, decimal_places=2, validators=[MinValueValidator(0)])
     count = models.IntegerField(validators=[MinValueValidator(0)])
