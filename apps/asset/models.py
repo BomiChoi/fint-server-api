@@ -13,5 +13,8 @@ ASSET_GROUP_CHOICES = (
 
 class Asset(models.Model):
     asset_name = models.CharField(max_length=30)
-    isin = models.CharField(max_length=12)
+    isin = models.CharField(max_length=12, unique=True)
     asset_group = models.CharField(max_length=30, choices=ASSET_GROUP_CHOICES)
+
+    def __str__(self):
+        return self.asset_name

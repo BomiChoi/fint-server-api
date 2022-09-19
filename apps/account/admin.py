@@ -35,7 +35,6 @@ class TransactionAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'account',
-        'user',
         'price',
         'created_at',
         'updated_at',
