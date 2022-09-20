@@ -12,7 +12,7 @@ def start():
     """ 스케줄러에 작업을 등록한 후 실행합니다. """
 
     scheduler = BackgroundScheduler()
-    scheduler.add_job(check_current_time, 'interval', seconds=1)
+    # scheduler.add_job(check_current_time, 'interval', seconds=1)
     scheduler.add_job(update_data, 'cron', hour=0)
     scheduler.start()
 
