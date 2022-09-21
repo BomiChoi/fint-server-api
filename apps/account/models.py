@@ -47,6 +47,14 @@ class AccountAsset(TimeStampedModel):
         return self.current_price * self.count
 
 
-class Transaction(TimeStampedModel):
+STATUS_CHOICES = (
+    ('인증대기', '인증대기'),
+    ('인증완료', '인증완료'),
+    ('취소', '취소')
+)
+
+
+class Deposit(TimeStampedModel):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=16, decimal_places=2, validators=[MinValueValidator(0)])
+    transfer_amount = models.DecimalField(max_digits=16, decimal_places=2, validators=[MinValueValidator(0)])
+    status = models.CharField(max_length=8, choices=STATUS_CHOICES, default='인증대기')

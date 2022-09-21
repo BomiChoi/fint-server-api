@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Account, AccountAsset, Transaction
+from .models import Account, AccountAsset, Deposit
 
 
 @admin.register(Account)
@@ -30,12 +30,13 @@ class AccountAssetAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(Transaction)
-class TransactionAdmin(admin.ModelAdmin):
+@admin.register(Deposit)
+class DepositAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'account',
-        'price',
+        'transfer_amount',
+        'status',
         'created_at',
         'updated_at',
     )
