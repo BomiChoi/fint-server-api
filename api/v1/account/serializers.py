@@ -8,12 +8,15 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = (
             'id',
+            'account_name',
             'stock_firm',
             'account_number',
-            'account_name',
+            'total_assets',
             'principal',
+            'total_profits',
+            'earnings_rate',
             'created_at',
-            'updated_at'
+            'updated_at',
         )
 
 
@@ -29,5 +32,6 @@ class AccountAssetSerializer(serializers.ModelSerializer):
             'current_price',
             'count',
             'created_at',
-            'updated_at'
+            'updated_at',
+            'evaluated_price',
         )

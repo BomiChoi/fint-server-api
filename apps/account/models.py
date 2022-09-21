@@ -22,6 +22,15 @@ class Account(TimeStampedModel):
     def __str__(self):
         return self.account_number
 
+    def total_assets(self):
+        return sum([asset.current_price * asset.count for asset in self.assets.all()])
+
+    def total_profits(self):
+        return self.total_assets() - self.principal
+
+    def earnings_rate(self):
+        return self.total_profits() / self.principal * 100
+
 
 class AccountAsset(TimeStampedModel):
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='assets')
@@ -33,6 +42,9 @@ class AccountAsset(TimeStampedModel):
         constraints = [
             models.UniqueConstraint(fields=['account', 'asset'], name='unique_account_asset')
         ]
+
+    def evaluated_price(self):
+        return self.current_price * self.count
 
 
 class Transaction(TimeStampedModel):

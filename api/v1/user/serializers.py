@@ -12,7 +12,7 @@ class UserAccountSerializer(serializers.ModelSerializer):
             'stock_firm',
             'account_number',
             'account_name',
-            'principal',
+            'total_assets',
         )
 
 
