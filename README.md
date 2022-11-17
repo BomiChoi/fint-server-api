@@ -128,7 +128,7 @@
 
 ## API 목록
 
-https://documenter.getpostman.com/view/17766148/2s7Z7YJa6U
+https://app.swaggerhub.com/apis/BomiChoi/fint-server-api/v1
 
 ## 프로젝트 시작 방법
 
